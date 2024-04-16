@@ -1,0 +1,56 @@
+<div class="container mt-5">
+    <div class="card p-2">
+
+        <div class="row">
+            <div class="col-6">
+                <form #phoneForm="ngForm" (ngSubmit)="addPhone(phoneForm)">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Phone name</mat-label>
+                        <input matInput 
+                            [(ngModel)] ="phone.phoneName"
+                            name="phoneName"
+                            placeholder="Enter your phone name">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Phone description</mat-label>
+                        <input matInput 
+                            [(ngModel)]="phone.phoneDescription"
+                            name="phoneDescription"
+                            placeholder="Enter your phone description">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Phone discounted price</mat-label>
+                        <input matInput 
+                            [(ngModel)]="phone.phoneDiscountedPrice"
+                            name="phoneDiscountedPrice"
+                            placeholder="Enter your phone discounted price">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Phone actual price</mat-label>
+                        <input matInput 
+                            [(ngModel)]="phone.phoneActualPrice"
+                            name="phoneActualPrice"
+                            placeholder="Enter your phone actual price">
+                    </mat-form-field>
+
+                    <div align="end">
+                        <button mat-stroked-button 
+                                color="primary" style="margin-right: 3px;">Cancel</button>
+                        <button mat-stroked-button 
+                                color="primary">Add Phone</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-6">
+                Image Area
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
