@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AuthGuard } from './_auth/auth.guard';
 import { AddnewphoneComponent } from './addnewphone/addnewphone.component';
+import { ShowPhoneDetailsComponent } from './show-phone-details/show-phone-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'user', component: UserComponent, canActivate:[AuthGuard], data: {roles: ['User']} },
   { path: 'login', component: LoginComponent },
   { path: 'forbidden', component: ForbiddenComponent },
-  {path: 'addNewPhone',component:AddnewphoneComponent}
+  {path: 'addNewPhone',component:AddnewphoneComponent, canActivate: [AuthGuard], data: {roles: ['Admin']}},
+  {path: 'showPhoneDetails', component:ShowPhoneDetailsComponent}
 ];
 
 @NgModule({

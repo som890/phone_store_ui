@@ -9,7 +9,13 @@ export class PhoneServiceService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public addPhone(phone: Phone) {
+  public addPhone(phone: FormData) {
     return this.httpClient.post<Phone>("http://localhost:8080/phone/add", phone);
+  }
+  public getAllPhones() {
+    return this.httpClient.get<Phone[]>("http://localhost:8080/phone/get");
+  }
+  public deletePhone(phoneId: number) {
+    return this.httpClient.delete("http://localhost:8080/phone/delete/" + phoneId);
   }
 }
