@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Phone } from './_model/phone.model';
+import { Phone } from '../_model/phone.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +17,8 @@ export class PhoneServiceService {
   }
   public deletePhone(phoneId: number) {
     return this.httpClient.delete("http://localhost:8080/phone/delete/" + phoneId);
+  }
+  public getPhoneDetailsById(phoneId: number) {
+    return this.httpClient.get("http://localhost:8080/getPhoneDetailsById/" + phoneId);
   }
 }

@@ -8,19 +8,43 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AuthGuard } from './_auth/auth.guard';
 import { AddnewphoneComponent } from './addnewphone/addnewphone.component';
 import { ShowPhoneDetailsComponent } from './show-phone-details/show-phone-details.component';
+import { PhoneResolveService } from './_service/phone-resolve.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'admin', component: AdminComponent, canActivate:[AuthGuard], data: {roles: ['Admin']} } ,
-  { path: 'user', component: UserComponent, canActivate:[AuthGuard], data: {roles: ['User']} },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['Admin'] },
+  },
+  {
+    path: 'user',
+    component: UserComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['User'] },
+  },
   { path: 'login', component: LoginComponent },
   { path: 'forbidden', component: ForbiddenComponent },
-  {path: 'addNewPhone',component:AddnewphoneComponent, canActivate: [AuthGuard], data: {roles: ['Admin']}},
-  {path: 'showPhoneDetails', component:ShowPhoneDetailsComponent}
+  {
+    path: 'addNewPhone',
+    component: AddnewphoneComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['Admin'] },
+    resolve: {
+      phone: PhoneResolveService,
+    },
+  },
+  {
+    path: 'showPhoneDetails',
+    component: ShowPhoneDetailsComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['Admin'] },
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

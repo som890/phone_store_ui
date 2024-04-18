@@ -1,5 +1,21 @@
 <div class="container mt-5">
-    <div class="card text-center" style="padding: 20px;">
-     <h1>This is Home Page</h1>
-    </div>
- </div>
+    <mat-grid-list cols="4" rowHeight="3:5" gutterSize="10">
+        <mat-grid-tile *ngFor="let phone of phoneDetails">
+            <div class="row home-page-phone-image">
+                <img [src]="phone.phoneImageSet[0].url">
+            </div>
+            <div class="mt-3">
+                <p><b>{{phone.phoneName}}</b></p>
+            </div>
+            <div class="mt-2">
+                <p>{{phone.phoneDescription}}</p>
+            </div>
+            <div class="mt-2">
+                <p>{{phone.phoneDiscountedPrice}} - {{phone.phoneActualPrice}}</p>
+            </div>
+            <div class="mt-2">
+                <button type="button">View</button>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

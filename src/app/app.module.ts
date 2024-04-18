@@ -19,14 +19,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { AddnewphoneComponent } from './addnewphone/addnewphone.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { DragDirective } from './drag.directive';
 import { ShowPhoneDetailsComponent } from './show-phone-details/show-phone-details.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ShowPhoneImageDialogComponent } from './show-phone-image-dialog/show-phone-image-dialog.component';
+import { DragDirective } from './_directive/drag.directive';
+import { AddnewphoneComponent } from './addnewphone/addnewphone.component';
 
 
 @NgModule({
@@ -38,10 +38,10 @@ import { ShowPhoneImageDialogComponent } from './show-phone-image-dialog/show-ph
     ForbiddenComponent,
     LoginComponent,
     HeaderComponent,
-    AddnewphoneComponent,
     DragDirective,
     ShowPhoneDetailsComponent,
-    ShowPhoneImageDialogComponent
+    ShowPhoneImageDialogComponent,
+    AddnewphoneComponent
   ],
   imports: [
     BrowserModule,

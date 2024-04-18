@@ -1,69 +1,68 @@
 <div class="container mt-5">
-    <table mat-table [dataSource]="phoneDetails" class="mat-elevation-z8">
+  <table mat-table [dataSource]="phoneDetails" class="mat-elevation-z8">
 
-        <!-- Phone Id Column -->
-        <ng-container matColumnDef="Phone Id">
-          <th mat-header-cell *matHeaderCellDef> Phone Id </th>
-          <td mat-cell *matCellDef="let element"> {{element.phoneId}} </td>
-        </ng-container>
-      
-        <!-- Phone name Column -->
-        <ng-container matColumnDef="Phone name">
-          <th mat-header-cell *matHeaderCellDef> Phone name </th>
-          <td mat-cell *matCellDef="let element"> {{element.phoneName}} </td>
-        </ng-container>
-      
-        <!-- Phone description Column -->
-        <ng-container matColumnDef="Phone description">
-          <th mat-header-cell *matHeaderCellDef> Phone description </th>
-          <td mat-cell *matCellDef="let element"> {{element.phoneDescription}} </td>
-        </ng-container>
-      
-        <!-- Phone Discounted Price Column -->
-        <ng-container matColumnDef="Phone discounted price">
-          <th mat-header-cell *matHeaderCellDef> Phone discounted price </th>
-          <td mat-cell *matCellDef="let element"> {{element.phoneDiscountedPrice}} </td>
-        </ng-container>
-    
-        <!-- Phone Actual Price Column -->
-        <ng-container matColumnDef="Phone actual price">
-            <th mat-header-cell *matHeaderCellDef> Phone actual price </th>
-            <td mat-cell *matCellDef="let element"> {{element.phoneActualPrice}} </td>
-          </ng-container>
+    <!-- Phone Id Column -->
+    <ng-container matColumnDef="Phone Id">
+      <th mat-header-cell *matHeaderCellDef> Phone Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.phoneId}} </td>
+    </ng-container>
 
-          <!-- Image Column -->
-        <ng-container matColumnDef="Image">
-            <th mat-header-cell *matHeaderCellDef> Image </th>
-            <td mat-cell *matCellDef="let element"> 
-                <button mat-icon-button color="primary" (click)="showImageDialog(element)">
-                    <mat-icon>images</mat-icon>
-                </button>
-             </td>
-          </ng-container>
+    <!-- Phone name Column -->
+    <ng-container matColumnDef="Phone name">
+      <th mat-header-cell *matHeaderCellDef> Phone name </th>
+      <td mat-cell *matCellDef="let element"> {{element.phoneName}} </td>
+    </ng-container>
 
-           <!-- Edit Column -->
-        <ng-container matColumnDef="Edit">
-            <th mat-header-cell *matHeaderCellDef> Edit </th>
-            <td mat-cell *matCellDef="let element"> 
-                <button mat-icon-button color="primary">
-                    <mat-icon>edit</mat-icon>
-                </button>
-             </td>
-          </ng-container>
+    <!-- Phone description Column -->
+    <ng-container matColumnDef="Phone description">
+      <th mat-header-cell *matHeaderCellDef> Phone description </th>
+      <td mat-cell *matCellDef="let element"> {{element.phoneDescription}} </td>
+    </ng-container>
 
-           <!-- Delete Column -->
-        <ng-container matColumnDef="Delete">
-            <th mat-header-cell *matHeaderCellDef> Delete </th>
-            <td mat-cell *matCellDef="let element"> 
-                <button mat-icon-button color="warn" (click)="deletePhone(element.phoneId)">
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </td>
-          </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-        
+    <!-- Phone Discounted Price Column -->
+    <ng-container matColumnDef="Phone discounted price">
+      <th mat-header-cell *matHeaderCellDef> Phone discounted price </th>
+      <td mat-cell *matCellDef="let element"> {{element.phoneDiscountedPrice | currency: 'VND': 'symbol':'1.0-0'}} </td>
+    </ng-container>
+
+    <!-- Phone Actual Price Column -->
+    <ng-container matColumnDef="Phone actual price">
+      <th mat-header-cell *matHeaderCellDef> Phone actual price </th>
+      <td mat-cell *matCellDef="let element"> {{element.phoneActualPrice | currency: 'VND': 'symbol': "1.0-0"}} </td>
+    </ng-container>
+
+    <!-- Image Column -->
+    <ng-container matColumnDef="Image">
+      <th mat-header-cell *matHeaderCellDef> Image </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" (click)="showImageDialog(element)">
+          <mat-icon>images</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Edit Column -->
+    <ng-container matColumnDef="Edit">
+      <th mat-header-cell *matHeaderCellDef> Edit </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" (click)="editPhoneDetails(element.phoneId)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Delete Column -->
+    <ng-container matColumnDef="Delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="warn" (click)="deletePhone(element.phoneId)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
 </div>
-
