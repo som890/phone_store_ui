@@ -26,12 +26,10 @@ export class ShowPhoneDetailsComponent implements OnInit {
   displayedColumns: string[] = [
     'Phone Id',
     'Phone name',
-    'Phone description',
+    'description',
     'Phone discounted price',
     'Phone actual price',
-    'Image',
-    'Edit',
-    'Delete',
+    'Actions',
   ];
 
   ngOnInit(): void {

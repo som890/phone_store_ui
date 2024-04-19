@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="mt-5 p-3">
   <table mat-table [dataSource]="phoneDetails" class="mat-elevation-z8">
 
     <!-- Phone Id Column -->
@@ -14,8 +14,8 @@
     </ng-container>
 
     <!-- Phone description Column -->
-    <ng-container matColumnDef="Phone description">
-      <th mat-header-cell *matHeaderCellDef> Phone description </th>
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
       <td mat-cell *matCellDef="let element"> {{element.phoneDescription}} </td>
     </ng-container>
 
@@ -31,30 +31,16 @@
       <td mat-cell *matCellDef="let element"> {{element.phoneActualPrice | currency: 'VND': 'symbol': "1.0-0"}} </td>
     </ng-container>
 
-    <!-- Image Column -->
-    <ng-container matColumnDef="Image">
-      <th mat-header-cell *matHeaderCellDef> Image </th>
+    <!-- Actions Column -->
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
       <td mat-cell *matCellDef="let element">
         <button mat-icon-button color="primary" (click)="showImageDialog(element)">
           <mat-icon>images</mat-icon>
         </button>
-      </td>
-    </ng-container>
-
-    <!-- Edit Column -->
-    <ng-container matColumnDef="Edit">
-      <th mat-header-cell *matHeaderCellDef> Edit </th>
-      <td mat-cell *matCellDef="let element">
         <button mat-icon-button color="primary" (click)="editPhoneDetails(element.phoneId)">
           <mat-icon>edit</mat-icon>
         </button>
-      </td>
-    </ng-container>
-
-    <!-- Delete Column -->
-    <ng-container matColumnDef="Delete">
-      <th mat-header-cell *matHeaderCellDef> Delete </th>
-      <td mat-cell *matCellDef="let element">
         <button mat-icon-button color="warn" (click)="deletePhone(element.phoneId)">
           <mat-icon>delete</mat-icon>
         </button>

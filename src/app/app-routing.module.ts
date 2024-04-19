@@ -9,6 +9,9 @@ import { AuthGuard } from './_auth/auth.guard';
 import { AddnewphoneComponent } from './addnewphone/addnewphone.component';
 import { ShowPhoneDetailsComponent } from './show-phone-details/show-phone-details.component';
 import { PhoneResolveService } from './_service/phone-resolve.service';
+import { PhoneViewDetailsComponent } from './phone-view-details/phone-view-details.component';
+import { BuyPhoneComponent } from './buy-phone/buy-phone.component';
+import { BuyPhoneResolveService } from './_service/buy-phone-resolve.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,6 +43,22 @@ const routes: Routes = [
     component: ShowPhoneDetailsComponent,
     canActivate: [AuthGuard],
     data: { roles: ['Admin'] },
+  },
+  {
+    path: 'phoneViewDetails',
+    component: PhoneViewDetailsComponent,
+    resolve: {
+      phone: PhoneResolveService,
+    },
+  },
+  {
+    path: 'buyPhone',
+    component: BuyPhoneComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['User'] },
+    resolve: {
+      buyDetails: BuyPhoneResolveService,
+    },
   },
 ];
 

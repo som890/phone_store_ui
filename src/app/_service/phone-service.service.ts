@@ -21,4 +21,7 @@ export class PhoneServiceService {
   public getPhoneDetailsById(phoneId: number) {
     return this.httpClient.get("http://localhost:8080/getPhoneDetailsById/" + phoneId);
   }
+  public getPhoneDetails(isSinglePhoneCheckout: any, phoneId: any) {
+    return this.httpClient.get("http://localhost:8080/"+ isSinglePhoneCheckout + "/" + phoneId)
+  }
 }

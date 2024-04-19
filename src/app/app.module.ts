@@ -27,6 +27,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ShowPhoneImageDialogComponent } from './show-phone-image-dialog/show-phone-image-dialog.component';
 import { DragDirective } from './_directive/drag.directive';
 import { AddnewphoneComponent } from './addnewphone/addnewphone.component';
+import { PhoneViewDetailsComponent } from './phone-view-details/phone-view-details.component';
+import { BuyPhoneComponent } from './buy-phone/buy-phone.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { AddnewphoneComponent } from './addnewphone/addnewphone.component';
     DragDirective,
     ShowPhoneDetailsComponent,
     ShowPhoneImageDialogComponent,
-    AddnewphoneComponent
+    AddnewphoneComponent,
+    PhoneViewDetailsComponent,
+    BuyPhoneComponent
   ],
   imports: [
     BrowserModule,

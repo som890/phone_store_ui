@@ -4,6 +4,7 @@ import { Phone } from '../_model/phone.model';
 import { ImagesProcessingService } from '../_service/images-processing.service';
 import { map } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private phoneService: PhoneServiceService,
-    private imageProcessingService: ImagesProcessingService
+    private imageProcessingService: ImagesProcessingService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this,this.getAllphones();
@@ -39,5 +41,8 @@ export class HomeComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+  showPhoneViewDetail(phoneId: any) {
+    this.router.navigate(['/phoneViewDetails', {phoneId: phoneId}])
   }
 }
