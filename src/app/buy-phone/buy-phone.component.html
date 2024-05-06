@@ -2,8 +2,36 @@
     <div class="card">
         <div class="row">
             <div class="col-6">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+                <form #orderForm="ngForm" (ngSubmit)="placeOrder(orderForm)">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Họ và tên</mat-label>
+                        <input matInput placeholder="Họ và tên" [(ngModel)]="orderDetails.orderFullName" name="orderFullName">
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Địa chị cụ thể</mat-label>
+                        <input matInput placeholder="Địa chị cụ thể" [(ngModel)]="orderDetails.orderFullAddress"
+                            name="orderFullAddress">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Số liên hệ</mat-label>
+                        <input matInput placeholder="Số liên hệ" [(ngModel)]="orderDetails.orderContactNumber"
+                            name="orderContactNumber">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Số liên hệ khác(nếu có)</mat-label>
+                        <input matInput placeholder="Số liên hệ khác(nếu có)"
+                            [(ngModel)]="orderDetails.orderAlternateContactNumber" name="orderAlternateContactNumber">
+                    </mat-form-field>
+
+                    <div align="right">
+                        <button type="submit" mat-stroked-button color="primary">Place Order</button>
+                    </div>
+                </form>
+
             </div>
             <div class="col-6">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.

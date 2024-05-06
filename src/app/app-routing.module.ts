@@ -57,7 +57,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { roles: ['User'] },
     resolve: {
-      buyDetails: BuyPhoneResolveService,
+      phoneDetails: BuyPhoneResolveService,
     },
   },
 ];

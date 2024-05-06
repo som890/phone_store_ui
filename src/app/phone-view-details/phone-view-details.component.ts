@@ -8,7 +8,7 @@ import { Phone } from '../_model/phone.model';
   styleUrls: ['./phone-view-details.component.css'],
 })
 export class PhoneViewDetailsComponent implements OnInit {
-  phone: Phone | undefined;
+  phone?: Phone;
   selectedPhoneIndex = 0;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {}

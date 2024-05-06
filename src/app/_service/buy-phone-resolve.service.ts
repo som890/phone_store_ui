@@ -6,8 +6,8 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import { Phone } from '../_model/phone.model';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 import { PhoneServiceService } from './phone-service.service';
 import { ImagesProcessingService } from './images-processing.service';
 
@@ -20,16 +20,14 @@ export class BuyPhoneResolveService implements Resolve<Phone[]> {
     private imageProcessingService: ImagesProcessingService
   ) {}
 
-  resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<Phone[]> | Promise<Phone[]> {
-    const id = route.paramMap.get('id');
-    const isSingleProductCheckOut = route.paramMap.get('isSinglePhoneCheckOut');
-
-    // Type guard to ensure phones is a Phone[] before using map
-    return this.phoneService
-      .getPhoneDetails(isSingleProductCheckOut, id)
-      .pipe(map((phone) => this.imageProcessingService.createImages(phone)));
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Phone[] | Observable<Phone[]> | Promise<Phone[]> {
+    const id = route.paramMap.get("id");
+    const isSingleProductCheckOut  = route.paramMap.get("isSinglePhoneCheckOut");
+    return this.phoneService.getPhoneDetails(isSingleProductCheckOut, id)
+    .pipe(
+      map(
+        (x: any, i) => x.map((phone: Phone) => this.imageProcessingService.createImages(phone))
+      )
+    );
   }
 }
