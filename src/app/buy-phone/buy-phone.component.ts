@@ -17,8 +17,8 @@ export class BuyPhoneComponent implements OnInit {
     orderFullName: '',
     orderFullAddress: '',
     orderContactNumber: '',
-    orderAlternateContactNumber: '',
-    orderPhoneQuantityList: []
+    orderAlternateNumber: '',
+    orderQuantityList: []
   }
 
   constructor(private activatedRoute: ActivatedRoute, private phoneService: PhoneServiceService) { }
@@ -28,7 +28,7 @@ export class BuyPhoneComponent implements OnInit {
 
     if (this.phoneDetails && this.orderDetails) {
       this.phoneDetails.forEach(
-          x => this.orderDetails.orderPhoneQuantityList.push(
+          x => this.orderDetails.orderQuantityList.push(
               { phoneId: x.phoneId, quantity: 1 }
           )
       );

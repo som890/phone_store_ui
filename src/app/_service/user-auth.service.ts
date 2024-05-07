@@ -19,6 +19,14 @@ export class UserAuthService {
     return []; 
    
   }
+  public setUsername(username: string) {
+    localStorage.setItem('username', username);
+  }
+  
+  public getUsername(): string | null {
+    return localStorage.getItem('username');
+  }
+  
   public setToken(token: string) {
     localStorage.setItem('token', token);
   }

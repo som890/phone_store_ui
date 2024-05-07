@@ -31,4 +31,7 @@ export class HeaderComponent {
   public isUser() {
     return this.userAuthService.isUser();
   }
+  public getUsername(): string {
+    return this.getUsername();
+  }
 }

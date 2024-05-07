@@ -27,6 +27,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { roles: ['User'] },
   },
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: '**', redirectTo: 'home' },
   { path: 'login', component: LoginComponent },
   { path: 'forbidden', component: ForbiddenComponent },
   {

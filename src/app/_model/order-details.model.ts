@@ -4,6 +4,6 @@ export interface OrderDetails {
     orderFullName: string,
     orderFullAddress: string,
     orderContactNumber: string,
-    orderAlternateContactNumber: string,
-    orderPhoneQuantityList: OrderQuantity[]
+    orderAlternateNumber: string,
+    orderQuantityList: OrderQuantity[]
 }
